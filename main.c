@@ -16,6 +16,7 @@ int main() {
         "Why do programmers hate nature? It has too many bugs.",
     };
 
+
     srand(time(NULL));
     print_random_quote(quotes);
     return 0;
