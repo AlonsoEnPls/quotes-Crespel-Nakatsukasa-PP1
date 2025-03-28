@@ -14,7 +14,6 @@ int main() {
         "Why do programmers prefer iOS development? Because the Swift.",
         "Why do programmers prefer dogs over cats? Because dogs have fetch and cats have catch.",
         "Why do programmers hate nature? It has too many bugs.",
-        "There are only 10 types of people in the world: Those who understand binary and those who don't."
     };
 
     srand(time(NULL));
