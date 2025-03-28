@@ -5,6 +5,7 @@
 int main() {
     char * quotes[MAX_QUOTES] = {
         "Programmer - An organism that turns caffeine into code",
+        "Faire semblant d'etre courageux quand on a peur, c'est etre courageux",
         "Why do programmers prefer dark mode? Because light attracts bugs.",
         "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
         "I don't always test my code, but when I do, I do it in production.",
