@@ -10,5 +10,6 @@
 
 void print_quote(char ** quotes, int index);
 void print_random_quote(char ** quotes);
+void create_tab(char *** tab, char **tab2);
 
 #endif
