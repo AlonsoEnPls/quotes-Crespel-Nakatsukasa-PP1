@@ -18,12 +18,10 @@ int main() {
     char **dynamic_quotes = NULL;
     create_tab(&dynamic_quotes,quotes);
     add_quotes(&dynamic_quotes,&nb_quotes);
-    add_quotes(&dynamic_quotes,&nb_quotes);
-    print_quote(dynamic_quotes, 8);
-    print_quote(dynamic_quotes, 9);
-    print_quote(dynamic_quotes, 10);
-    print_quote(dynamic_quotes, 11);
-
+    remove_quotes(&dynamic_quotes,&nb_quotes);
+    for (int i = 0; i < nb_quotes; i++) {
+        printf("%d. %s\n", i+1,dynamic_quotes[i]);
+    }
     /*print_random_quote(quotes);*/
     return 0;
 }
