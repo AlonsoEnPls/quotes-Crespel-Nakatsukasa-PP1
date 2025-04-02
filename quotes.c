@@ -15,14 +15,14 @@ void print_random_quote(char ** quotes) {
 void create_tab(char *** tab, char **tab2) {
     *tab = (char**) malloc(MAX_QUOTES * sizeof(char*));
     if (*tab == NULL) {
-        printf("Memory allocation failed.\n");
+        printf("Echec allocation de memoir.\n");
         exit(1);
     }
     for (int i = 0; i < MAX_QUOTES; i++) {
         int length = strlen(tab2[i]);
         (*tab)[i] = (char*) malloc((length+1)*sizeof(char));
         if ((*tab)[i] == NULL) {
-            printf("Memory allocation failed.\n");
+            printf("Echec allocation de memoir.\n");
             exit(1);
         }
         strcpy((*tab)[i], tab2[i]);
@@ -40,4 +40,19 @@ void add_quotes(char *** tab, int * nb_quotes) {
     (*tab)[*nb_quotes] = (char*) malloc((strlen(quote)+1) * sizeof(char));
     strcpy((*tab)[*nb_quotes],quote);
     (*nb_quotes) ++;
+}
+
+void remove_quotes(char *** tab, int * nb_quotes) {
+    int index;
+    for (int i = 0; i < *nb_quotes; i++) {
+        printf("%d. %s\n", i+1,(*tab)[i]);
+    }
+    printf("Quelle citation voulez-vous supprimer? Saisissez son numero :\n");
+    scanf("%d", &index);
+    for (int i = index-1; i < *nb_quotes-1; i++) {
+        strcpy((*tab)[i], (*tab)[i+1]);
+    }
+    free((*tab)[*nb_quotes-1]);
+    *tab =  (char**) realloc(*tab, (*nb_quotes-1) * sizeof(char*));
+    (*nb_quotes) --;
 }
