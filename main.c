@@ -17,11 +17,43 @@ int main() {
     };
     char **dynamic_quotes = NULL;
     create_tab(&dynamic_quotes,quotes);
-    add_quotes(&dynamic_quotes,&nb_quotes);
-    remove_quotes(&dynamic_quotes,&nb_quotes);
-    for (int i = 0; i < nb_quotes; i++) {
-        printf("%d. %s\n", i+1,dynamic_quotes[i]);
+    int running = 1;
+    int num;
+    while(running) {
+        printf("\n1. Afficher toutes les citations\n"
+               "2. Afficher une citation\n"
+               "3. Afficher une citation au hasard\n"
+               "4. Ajouter une citation\n"
+               "5. Enlever une citation\n"
+               "6. Fermer le programme\n"
+               "Saisissez le numero de l'action souhaitee\n");
+        scanf(" %d", &num);
+        while (getchar() != '\n');
+        switch(num) {
+            case 1:
+                print_all_quotes(&dynamic_quotes, &nb_quotes);
+                break;
+            case 2:
+                int index;
+                printf("Saisir le numero de citation a afficher");
+                scanf("%d", &index);
+                print_quote(dynamic_quotes,index);
+                break;
+            case 3:
+                print_random_quote(dynamic_quotes);
+                break;
+            case 4:
+                add_quotes(&dynamic_quotes, &nb_quotes);
+                break;
+            case 5:
+                remove_quotes(&dynamic_quotes, &nb_quotes);
+                break;
+            case 6:
+                running = 0;
+                break;
+            default:
+                printf("Numero invalide.");
+
+        }
     }
-    /*print_random_quote(quotes);*/
-    return 0;
 }

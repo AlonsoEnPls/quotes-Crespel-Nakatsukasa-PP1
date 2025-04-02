@@ -2,7 +2,7 @@
 #include "quotes.h"
 
 void print_quote(char ** quotes, int index) {
-    printf("%s\n", quotes[index]);
+    printf("%s\n", quotes[index-1]);
 }
 
 void print_random_quote(char ** quotes) {
@@ -55,4 +55,10 @@ void remove_quotes(char *** tab, int * nb_quotes) {
     free((*tab)[*nb_quotes-1]);
     *tab =  (char**) realloc(*tab, (*nb_quotes-1) * sizeof(char*));
     (*nb_quotes) --;
+}
+
+void print_all_quotes(char *** tab, int * nb_quotes) {
+    for (int i = 0; i < *nb_quotes; i++) {
+        printf("%s\n", (*tab)[i]);
+    }
 }

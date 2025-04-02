@@ -14,4 +14,5 @@ void print_random_quote(char ** quotes);
 void create_tab(char *** tab, char **tab2);
 void add_quotes(char *** tab, int * nb_quotes);
 void remove_quotes(char *** tab, int * nb_quotes);
+void print_all_quotes(char *** quotes, int * nb_quotes);
 #endif
