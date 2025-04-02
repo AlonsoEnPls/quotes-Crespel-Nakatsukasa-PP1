@@ -6,6 +6,7 @@ void print_quote(char ** quotes, int index) {
 }
 
 void print_random_quote(char ** quotes) {
+    srand(time(NULL));
     int index = rand() % MAX_QUOTES;
     print_quote(quotes, index);
 }
@@ -26,4 +27,17 @@ void create_tab(char *** tab, char **tab2) {
         }
         strcpy((*tab)[i], tab2[i]);
     }
+}
+
+void add_quotes(char *** tab, int * nb_quotes) {
+    char quote[100];
+    *tab = (char**) realloc(*tab, (*nb_quotes + 1) * sizeof(char*));
+    printf("Saisir une nouvelle citation :\n");
+    fgets(quote, 100, stdin);
+    if (strlen(quote) > 0 && quote[strlen(quote) - 1] == '\n') {
+        quote[strlen(quote) - 1] = '\0';
+    }
+    (*tab)[*nb_quotes] = (char*) malloc((strlen(quote)+1) * sizeof(char));
+    strcpy((*tab)[*nb_quotes],quote);
+    (*nb_quotes) ++;
 }
