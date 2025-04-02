@@ -1,10 +1,9 @@
- #include "quotes.h"
+#include "quotes.h"
 #include <time.h>
 
-
+int nb_quotes = MAX_QUOTES;
 int main() {
-    char * quotes[MAX_QUOTES] = {
-        "Programmer - An organism that turns caffeine into code",
+    char *quotes[] = {"Programmer - An organism that turns caffeine into code",
         "Why do programmers prefer dark mode? Because light attracts bugs.",
         "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
         "I don't always test my code, but when I do, I do it in production.",
@@ -15,7 +14,10 @@ int main() {
         "Why do programmers hate nature? It has too many bugs.",
         "There are only 10 types of people in the world: Those who understand binary and those who don't."
     };
+    char **dynamic_quotes = NULL;
 
+    create_tab(&dynamic_quotes,quotes);
+    print_quote(dynamic_quotes, 4);
     srand(time(NULL));
     print_random_quote(quotes);
     return 0;
